@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+    @apply text-gray-800 bg-white;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-navy-700 to-gold-500 bg-clip-text text-transparent;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold gradient-text mb-3;
+  }
+
+  .section-subheading {
+    @apply text-gray-500 text-base md:text-lg mb-12;
+  }
+
+  .gold-underline {
+    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gold-500;
+  }
+
+  .btn-primary {
+    @apply bg-gold-500 hover:bg-gold-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 inline-flex items-center gap-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 inline-flex items-center gap-2;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100;
+  }
+}
