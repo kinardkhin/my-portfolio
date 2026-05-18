@@ -1,11 +1,10 @@
-import { Download, CheckCircle, Award, User } from 'lucide-react';
+import { Download, CheckCircle, Award } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
 
 const offerings = [
   'Full stack web application development',
   'Database design and management',
   'Production deployment and maintenance',
-  'Network and system administration',
   'SaaS tool setup and training',
 ];
 
@@ -48,15 +47,17 @@ export default function About() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
           {/* Photo + quick stats */}
           <AnimatedSection direction="left" className="lg:col-span-2">
             <div className="text-center">
-              {/* Photo placeholder */}
+              {/* Photo */}
               <div className="relative inline-block mb-6">
-                <div className="w-48 h-48 rounded-full bg-gradient-to-br from-navy-700 to-navy-900 mx-auto flex items-center justify-center border-4 border-gold-500/30 shadow-2xl">
-                  <User size={72} className="text-navy-300" />
-                </div>
+                <img
+                  src="/images/my-photo.png"
+                  alt="Kinard Khin Masayon Orbita"
+                  className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover object-top border-4 border-gold-500/30 shadow-2xl"
+                />
                 <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center shadow-lg">
                   <CheckCircle size={20} className="text-white" />
                 </div>
@@ -72,7 +73,7 @@ export default function About() {
               <div className="flex justify-center gap-6 text-center mb-6">
                 {[
                   { value: '7+', label: 'Years Exp.' },
-                  { value: '6+', label: 'Projects' },
+                  { value: '5+', label: 'Projects' },
                   { value: '3', label: 'Certs' },
                 ].map(({ value, label }) => (
                   <div key={label}>

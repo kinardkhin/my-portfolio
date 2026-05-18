@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Send, AlertCircle } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
 
 interface FormData {
@@ -41,7 +41,7 @@ const socialLinks = [
     icon: Github,
     label: 'GitHub',
     href: 'https://github.com/',
-    text: 'github.com/kinardorbita',
+    text: 'github.com/kinardkhin',
   },
   {
     icon: Mail,
@@ -51,6 +51,11 @@ const socialLinks = [
   },
 ];
 
+const encode = (data: Record<string, string>) =>
+  Object.keys(data)
+    .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
+    .join('&');
+
 export default function Contact() {
   const [form, setForm] = useState<FormData>({
     name: '',
@@ -58,7 +63,7 @@ export default function Contact() {
     subject: '',
     message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -66,10 +71,19 @@ export default function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // UI only — no backend connected yet
-    setSubmitted(true);
+    setStatus('submitting');
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact', ...form }),
+      });
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
   };
 
   const inputClass =
@@ -164,7 +178,7 @@ export default function Contact() {
           {/* Contact form */}
           <AnimatedSection direction="right" className="lg:col-span-3">
             <div className="card p-8">
-              {submitted ? (
+              {status === 'success' ? (
                 <div className="text-center py-10">
                   <div className="w-16 h-16 rounded-full bg-green-50 border-2 border-green-200 flex items-center justify-center mx-auto mb-4">
                     <Send size={28} className="text-green-500" />
@@ -179,7 +193,7 @@ export default function Contact() {
                   <button
                     className="mt-6 btn-primary"
                     onClick={() => {
-                      setSubmitted(false);
+                      setStatus('idle');
                       setForm({ name: '', email: '', subject: '', message: '' });
                     }}
                   >
@@ -187,7 +201,15 @@ export default function Contact() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  onSubmit={handleSubmit}
+                  className="space-y-5"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
+
                   <div>
                     <h2 className="text-xl font-bold text-navy-800 mb-1">
                       Send a Message
@@ -196,6 +218,13 @@ export default function Contact() {
                       Fill in the form below and I'll respond promptly.
                     </p>
                   </div>
+
+                  {status === 'error' && (
+                    <div className="flex items-center gap-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+                      <AlertCircle size={16} className="flex-shrink-0" />
+                      Something went wrong. Please email me directly at kinardkhin@gmail.com.
+                    </div>
+                  )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -258,14 +287,14 @@ export default function Contact() {
                     />
                   </div>
 
-                  <button type="submit" className="btn-primary w-full justify-center">
+                  <button
+                    type="submit"
+                    disabled={status === 'submitting'}
+                    className="btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                  >
                     <Send size={16} />
-                    Send Message
+                    {status === 'submitting' ? 'Sending…' : 'Send Message'}
                   </button>
-
-                  <p className="text-xs text-gray-400 text-center">
-                    UI only — form submission backend not yet connected.
-                  </p>
                 </form>
               )}
             </div>

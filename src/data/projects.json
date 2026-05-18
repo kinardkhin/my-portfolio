@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Driver Accomplishment Monitoring System",
+    "description": "Production web app for monitoring port terminal drivers in real time. Used daily by company operations staff to track driver activity and status.",
+    "stack": ["React", "Node.js", "Supabase", "Netlify", "GitHub"],
+    "aiAssisted": true,
+    "isProduction": true,
+    "thumbnail": "images/driver-monitoring.png",
+    "demoUrl": "#"
+  },
+  {
+    "title": "BiometricHub",
+    "description": "Biometric Device Management System. Extracts registered users, updates device time, and retrieves attendance logs directly from biometric hardware.",
+    "stack": ["Laravel", "InertiaJs", "React", "MySQL"],
+    "aiAssisted": true,
+    "thumbnail": "images/biometrichub.png",
+    "demoUrl": "#"
+  },
+  {
+    "title": "NetDevMon",
+    "description": "Network Device Monitoring System that tracks access points, routers, switches, and other network-reachable devices across the terminal.",
+    "stack": ["Laravel", "InertiaJs", "React", "MySQL"],
+    "aiAssisted": true,
+    "thumbnail": "images/netdevmon.png",
+    "demoUrl": "#"
+  },
+  {
+    "title": "Fuel Monitoring System",
+    "description": "Records detailed fuel consumption per truck and driver in liters, with meter readings, equipment details, and operator tracking for audit compliance.",
+    "stack": ["Laravel", "Vue.js", "MySQL"],
+    "aiAssisted": false,
+    "thumbnail": "images/fuel-monitoring.png",
+    "demoUrl": "#"
+  },
+  {
+    "title": "M&S Borrower System",
+    "description": "Materials and Supply Borrower System for item borrowing workflows and inventory tracking across departments.",
+    "stack": ["Laravel", "JavaScript", "MySQL"],
+    "aiAssisted": true,
+    "thumbnail": "images/ms-borrower.png",
+    "demoUrl": "#"
+  }
+]

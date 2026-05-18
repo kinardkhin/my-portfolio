@@ -4,7 +4,7 @@ import AnimatedSection from '../components/AnimatedSection';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-900">
         {/* Background decoration */}
@@ -23,13 +23,6 @@ export default function Home() {
         </div>
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Tag */}
-          <AnimatedSection delay={100}>
-            <span className="inline-block border border-gold-500/40 text-gold-400 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6 bg-gold-500/5">
-              Available for freelance work
-            </span>
-          </AnimatedSection>
-
           {/* Name */}
           <AnimatedSection delay={200}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4">
@@ -73,7 +66,7 @@ export default function Home() {
 
           {/* Stats */}
           <AnimatedSection delay={650}>
-            <div className="mt-16 grid grid-cols-3 gap-6 max-w-lg mx-auto">
+            <div className="mt-16 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg mx-auto">
               {[
                 { value: '7+', label: 'Years Experience' },
                 { value: '6+', label: 'Projects Built' },

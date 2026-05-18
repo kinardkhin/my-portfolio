@@ -1,5 +1,6 @@
 import { ExternalLink, Github, Cpu } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
+import projectsData from '../data/projects.json';
 
 interface Project {
   title: string;
@@ -9,59 +10,10 @@ interface Project {
   isProduction?: boolean;
   hasGithub?: boolean;
   demoUrl?: string;
+  thumbnail?: string;
 }
 
-const projects: Project[] = [
-  {
-    title: 'Driver Monitoring System',
-    description:
-      'Production web app for monitoring port terminal drivers in real time. Used daily by company operations staff to track driver activity and status.',
-    stack: ['React', 'Node.js', 'Supabase', 'Netlify', 'GitHub'],
-    aiAssisted: true,
-    isProduction: true,
-    demoUrl: '#',
-  },
-  {
-    title: 'BiometricHub',
-    description:
-      'Biometric Device Management System. Extracts registered users, updates device time, and retrieves attendance logs directly from biometric hardware.',
-    stack: ['Laravel', 'InertiaJs', 'React', 'MySQL'],
-    aiAssisted: true,
-    demoUrl: '#',
-  },
-  {
-    title: 'NetDevMon',
-    description:
-      'Network Device Monitoring System that tracks access points, routers, switches, and other network-reachable devices across the terminal.',
-    stack: ['Laravel', 'InertiaJs', 'React', 'MySQL'],
-    aiAssisted: true,
-    demoUrl: '#',
-  },
-  {
-    title: 'DICT Accomplishment Monitoring System',
-    description:
-      'Tracks and reports departmental accomplishments. First project to use Docker for containerized deployment, improving portability and consistency.',
-    stack: ['Laravel', 'InertiaJs', 'React', 'MySQL', 'Docker'],
-    aiAssisted: false,
-    demoUrl: '#',
-  },
-  {
-    title: 'Fuel Monitoring System',
-    description:
-      'Records detailed fuel consumption per truck and driver in liters, with meter readings, equipment details, and operator tracking for audit compliance.',
-    stack: ['Laravel', 'Vue.js', 'MySQL'],
-    aiAssisted: false,
-    demoUrl: '#',
-  },
-  {
-    title: 'M&S Borrower System',
-    description:
-      'Materials and Supply Borrower System for item borrowing workflows and inventory tracking across departments.',
-    stack: ['Laravel', 'JavaScript', 'MySQL'],
-    aiAssisted: true,
-    demoUrl: '#',
-  },
-];
+const projects: Project[] = projectsData;
 
 const stackColors: Record<string, string> = {
   React: 'bg-cyan-50 text-cyan-700 border-cyan-200',
@@ -91,8 +43,16 @@ function StackTag({ name }: { name: string }) {
 function ProjectCard({ project }: { project: Project }) {
   return (
     <div className="card p-0 flex flex-col overflow-hidden">
-      {/* Card header bar */}
-      <div className="h-1.5 w-full bg-gradient-to-r from-navy-700 to-gold-500" />
+      {/* Thumbnail */}
+      {project.thumbnail ? (
+        <img
+          src={`/${project.thumbnail}`}
+          alt={project.title}
+          className="w-full h-44 object-cover"
+        />
+      ) : (
+        <div className="h-1.5 w-full bg-gradient-to-r from-navy-700 to-gold-500" />
+      )}
 
       <div className="p-6 flex flex-col flex-1">
         {/* Badges */}

@@ -72,7 +72,7 @@ export default function Experience() {
               {/* Card */}
               <div className="card p-6">
                 {/* Header */}
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-navy-800">
                       Senior System Admin Staff
@@ -81,12 +81,12 @@ export default function Experience() {
                       Davao International Container Terminal, Inc.
                     </p>
                   </div>
-                  <div className="flex flex-col items-end gap-1">
+                  <div className="flex sm:flex-col items-center sm:items-end gap-2 sm:gap-1 flex-shrink-0">
                     <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-green-50 text-green-700 border border-green-200">
                       <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                       Current Role
                     </span>
-                    <span className="flex items-center gap-1 text-sm text-gray-500">
+                    <span className="flex items-center gap-1 text-sm text-gray-500 whitespace-nowrap">
                       <Calendar size={13} />
                       2018 – Present
                     </span>
