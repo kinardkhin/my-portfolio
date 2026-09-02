@@ -69,7 +69,7 @@ export default function Home() {
             <div className="mt-16 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg mx-auto">
               {[
                 { value: '7+', label: 'Years Experience' },
-                { value: '6+', label: 'Projects Built' },
+                { value: '7', label: 'Projects Built' },
                 { value: '3', label: 'Certifications' },
               ].map(({ value, label }) => (
                 <div key={label} className="text-center">
