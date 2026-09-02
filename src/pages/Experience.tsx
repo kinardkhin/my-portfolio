@@ -75,7 +75,7 @@ export default function Experience() {
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-navy-800">
-                      Senior System Admin Staff
+                      Senior System Administrator Staff
                     </h3>
                     <p className="text-gold-600 font-semibold mt-0.5">
                       Davao International Container Terminal, Inc.
@@ -88,7 +88,7 @@ export default function Experience() {
                     </span>
                     <span className="flex items-center gap-1 text-sm text-gray-500 whitespace-nowrap">
                       <Calendar size={13} />
-                      2018 – Present
+                      2018 - Present
                     </span>
                   </div>
                 </div>
@@ -146,7 +146,7 @@ export default function Experience() {
                   </div>
                   <span className="flex items-center gap-1 text-sm text-gray-500 whitespace-nowrap">
                     <Calendar size={13} />
-                    2014 – 2018
+                    2014 - 2018
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5 text-sm text-gray-500">

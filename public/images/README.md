@@ -1,16 +1,6 @@
-# Project Thumbnails
+# Project Images
 
-Place project screenshot images here. Each file should match the `thumbnail` value in `src/data/projects.json`.
+- `my-photo.png` — About page profile photo, referenced directly in `src/pages/About.tsx`.
+- `projects/<slug>/1.png, 2.png, ...` — per-project screenshots. Each project in `src/data/projects.ts` has a `slug` and an `images` array built from this folder; the first image is used as the card thumbnail on `/projects`, and the full set renders in the gallery on `/projects/:slug`.
 
-| Filename | Project |
-|---|---|
-| `driver-monitoring.png` | Driver Monitoring System |
-| `biometrichub.png` | BiometricHub |
-| `netdevmon.png` | NetDevMon |
-| `dict-accomplishment.png` | DICT Accomplishment Monitoring System |
-| `fuel-monitoring.png` | Fuel Monitoring System |
-| `ms-borrower.png` | M&S Borrower System |
-
-Recommended size: **800×500 px** (16:10). PNG or JPEG both work.
-
-When no image file exists for a project, the card falls back to a gradient placeholder automatically.
+When adding a new project, create `public/images/projects/<slug>/` with numbered screenshots and add a matching entry to `src/data/projects.ts`.

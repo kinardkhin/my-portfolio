@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      'What sets Kinard apart is his commitment to quality and his forward-thinking approach. He embraces modern tools and AI-assisted workflows to deliver projects faster — without cutting corners on code quality or maintainability.',
+      'What sets Kinard apart is his commitment to quality and his forward-thinking approach. He embraces modern tools and AI-assisted workflows to deliver projects faster, without cutting corners on code quality or maintainability.',
     name: 'Maria C. Reyes',
     position: 'IT Department Head',
     company: 'Davao International Container Terminal, Inc.',
@@ -96,7 +96,7 @@ export default function Testimonials() {
             </p>
             <h1 className="section-heading">Testimonials</h1>
             <p className="text-navy-200 max-w-xl mx-auto">
-              Placeholder testimonials — real endorsements from colleagues and
+              Placeholder testimonials. Real endorsements from colleagues and
               stakeholders will be added here.
             </p>
           </AnimatedSection>

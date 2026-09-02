@@ -5,7 +5,6 @@ const offerings = [
   'Full stack web application development',
   'Database design and management',
   'Production deployment and maintenance',
-  'SaaS tool setup and training',
 ];
 
 const certifications = [
@@ -67,13 +66,13 @@ export default function About() {
                 Kinard Khin Masayon Orbita
               </h2>
               <p className="text-gold-600 text-sm font-medium mb-4">
-                Full Stack Developer & Senior Sys Admin
+                Senior System Administrator Staff | Web Application Developer
               </p>
 
               <div className="flex justify-center gap-6 text-center mb-6">
                 {[
                   { value: '7+', label: 'Years Exp.' },
-                  { value: '5+', label: 'Projects' },
+                  { value: '7', label: 'Projects' },
                   { value: '3', label: 'Certs' },
                 ].map(({ value, label }) => (
                   <div key={label}>
@@ -84,9 +83,9 @@ export default function About() {
               </div>
 
               <a
-                href="#"
+                href="/resume/kinard-khin-orbita-resume.pdf"
+                download
                 className="btn-primary w-full justify-center"
-                onClick={(e) => e.preventDefault()}
               >
                 <Download size={16} />
                 Download CV
@@ -99,19 +98,22 @@ export default function About() {
           <AnimatedSection direction="right" className="lg:col-span-3">
             <div className="space-y-5 text-gray-600 leading-relaxed mb-8">
               <p>
-                I am a Full Stack Web Developer and Senior System Admin Staff
-                based in Panabo City, Davao del Norte, Philippines with over 7
-                years of experience at Davao International Container Terminal,
-                Inc.
+                I am a Senior System Administrator Staff and Web Application
+                Developer based in Panabo City, Davao del Norte, Philippines
+                with over 7 years of experience at Davao International
+                Container Terminal, Inc.
               </p>
               <p>
                 I specialize in building internal business systems, production
                 web apps, and workflow automation tools using modern stacks
-                including Laravel, React, Vue.js, Node.js, and Supabase.
+                including Laravel, React, Vue.js, Node.js, and Supabase, with
+                hands-on experience in Navis N4 EDI integration, network
+                monitoring, Active Directory management, and containerized
+                deployments via Docker.
               </p>
               <p>
-                I embrace modern AI-assisted development workflows — using tools
-                like Claude, GitHub Copilot, and Bolt.new — to deliver faster
+                I embrace modern AI-assisted development workflows, using tools
+                like Claude, GitHub Copilot, and Bolt.new, to deliver faster
                 without sacrificing quality or ownership of the code.
               </p>
             </div>

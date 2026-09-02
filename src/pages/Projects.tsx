@@ -1,32 +1,27 @@
-import { ExternalLink, Github, Cpu } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Cpu, Lock } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
-import projectsData from '../data/projects.json';
-
-interface Project {
-  title: string;
-  description: string;
-  stack: string[];
-  aiAssisted: boolean;
-  isProduction?: boolean;
-  hasGithub?: boolean;
-  demoUrl?: string;
-  thumbnail?: string;
-}
-
-const projects: Project[] = projectsData;
+import { projects, type Project } from '../data/projects';
 
 const stackColors: Record<string, string> = {
   React: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+  TypeScript: 'bg-blue-50 text-blue-700 border-blue-200',
   'Node.js': 'bg-green-50 text-green-700 border-green-200',
   Supabase: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   Netlify: 'bg-teal-50 text-teal-700 border-teal-200',
   GitHub: 'bg-gray-100 text-gray-700 border-gray-200',
   Laravel: 'bg-red-50 text-red-700 border-red-200',
+  'Inertia.js': 'bg-violet-50 text-violet-700 border-violet-200',
   InertiaJs: 'bg-violet-50 text-violet-700 border-violet-200',
   'Vue.js': 'bg-green-50 text-green-700 border-green-200',
   MySQL: 'bg-blue-50 text-blue-700 border-blue-200',
+  'SQL Server': 'bg-indigo-50 text-indigo-700 border-indigo-200',
+  LDAP: 'bg-orange-50 text-orange-700 border-orange-200',
+  JWT: 'bg-pink-50 text-pink-700 border-pink-200',
+  'Tailwind CSS': 'bg-sky-50 text-sky-700 border-sky-200',
   Docker: 'bg-sky-50 text-sky-700 border-sky-200',
   JavaScript: 'bg-yellow-50 text-yellow-700 border-yellow-200',
+  'Microsoft Entra ID': 'bg-indigo-50 text-indigo-700 border-indigo-200',
 };
 
 function StackTag({ name }: { name: string }) {
@@ -42,11 +37,10 @@ function StackTag({ name }: { name: string }) {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="card p-0 flex flex-col overflow-hidden">
-      {/* Thumbnail */}
-      {project.thumbnail ? (
+    <Link to={`/projects/${project.slug}`} className="card p-0 flex flex-col overflow-hidden group">
+      {project.images.length > 0 ? (
         <img
-          src={`/${project.thumbnail}`}
+          src={project.images[0]}
           alt={project.title}
           className="w-full h-44 object-cover"
         />
@@ -57,22 +51,24 @@ function ProjectCard({ project }: { project: Project }) {
       <div className="p-6 flex flex-col flex-1">
         {/* Badges */}
         <div className="flex flex-wrap gap-2 mb-3">
-          {project.aiAssisted && (
+          {project.status === 'AI Assisted' && (
             <span className="flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full bg-gold-50 text-gold-700 border border-gold-200">
               <Cpu size={11} />
               AI Assisted
             </span>
           )}
-          {project.isProduction && (
+          {project.status === 'Production' && (
             <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-green-50 text-green-700 border border-green-200">
               Production App
             </span>
           )}
         </div>
 
-        <h3 className="text-lg font-bold text-navy-800 mb-2">{project.title}</h3>
+        <h3 className="text-lg font-bold text-navy-800 mb-2 group-hover:text-gold-600 transition-colors">
+          {project.title}
+        </h3>
         <p className="text-gray-500 text-sm leading-relaxed mb-4 flex-1">
-          {project.description}
+          {project.shortDescription}
         </p>
 
         {/* Stack tags */}
@@ -83,31 +79,17 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
-          <a
-            href={project.demoUrl ?? '#'}
-            onClick={(e) => e.preventDefault()}
-            className="btn-primary text-sm py-2 px-4"
-          >
-            <ExternalLink size={14} />
-            Live Demo
-          </a>
-          <p className="text-xs text-gray-400 self-center italic">
-            Demo login credentials provided
-          </p>
-          {project.hasGithub && (
-            <a
-              href="#"
-              onClick={(e) => e.preventDefault()}
-              className="btn-outline text-sm py-2 px-4"
-            >
-              <Github size={14} />
-              GitHub
-            </a>
-          )}
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-gray-100">
+          <span className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-full bg-gray-100 text-gray-600 border border-gray-200">
+            <Lock size={12} />
+            Internal Use Only
+          </span>
+          <span className="text-sm font-semibold text-gold-600 group-hover:translate-x-0.5 transition-transform">
+            View Case Study →
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -150,7 +132,7 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, i) => (
-            <AnimatedSection key={project.title} delay={i * 80}>
+            <AnimatedSection key={project.slug} delay={i * 80}>
               <ProjectCard project={project} />
             </AnimatedSection>
           ))}

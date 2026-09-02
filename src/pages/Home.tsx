@@ -34,9 +34,9 @@ export default function Home() {
           {/* Title */}
           <AnimatedSection delay={350}>
             <p className="text-lg sm:text-xl md:text-2xl font-medium text-navy-200 mb-4">
-              Full Stack Web Developer
+              Senior System Administrator Staff
               <span className="text-gold-400 mx-2">|</span>
-              Senior System Admin Staff
+              Web Application Developer
             </p>
           </AnimatedSection>
 
@@ -95,7 +95,7 @@ export default function Home() {
               {[
                 {
                   title: 'Full Stack Development',
-                  desc: 'Laravel, React, Vue.js, Node.js — end-to-end application development.',
+                  desc: 'Laravel, React, Vue.js, and Node.js for end-to-end application development.',
                 },
                 {
                   title: 'System Administration',

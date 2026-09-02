@@ -16,7 +16,7 @@ const socialLinks = [
     label: 'LinkedIn',
   },
   {
-    href: 'https://github.com/',
+    href: 'https://github.com/kinardkhin',
     icon: Github,
     label: 'GitHub',
   },
@@ -38,8 +38,8 @@ export default function Footer() {
               Kinard<span className="text-gold-400">.</span>Orbita
             </Link>
             <p className="mt-3 text-sm leading-relaxed">
-              Full Stack Web Developer & Senior System Admin Staff based in
-              Panabo City, Davao del Norte, Philippines.
+              Senior System Administrator Staff | Web Application Developer
+              based in Panabo City, Davao del Norte, Philippines.
             </p>
           </div>
 
@@ -88,7 +88,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-xs">
-            © 2025 Kinard Khin Masayon Orbita. All rights reserved.
+            © {new Date().getFullYear()} Kinard Khin Masayon Orbita. All rights reserved.
           </p>
           <p className="text-xs">Built with React, Tailwind CSS & Supabase</p>
         </div>
